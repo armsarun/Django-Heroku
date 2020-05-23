@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-from decouple import config
+from decouple import config, UndefinedValueError
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -27,10 +27,10 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 try:
    DEBUG = config('DEBUG')
-except KEYERROR:
-    DEBUG = False
+except UndefinedValueError:
+    DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
