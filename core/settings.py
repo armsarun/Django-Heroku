@@ -152,5 +152,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # STATICFILES_DIRS = os.path.join(BASE_DIR, "static"),
 
 if DEBUG:
+
+    # these for serving static files in heroku
     MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+    import django_heroku
+    django_heroku.settings(locals())
