@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 try:
    DEBUG = config('DEBUG')
 except UndefinedValueError:
-    DEBUG = True
+    DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
